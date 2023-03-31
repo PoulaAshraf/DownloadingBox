@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+
+        }
+        #android{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            border-bottom: 2px solid #a9a9a8;
+            display: none;
+        }
+        #close{
+            font-weight: bold;
+            font-size: 26px;
+            line-height: 65px;
+            color: #888888;
+            margin: 0 10px;
+            cursor: pointer;
+            margin-right: 13px;
+        }
+
+        #text{
+            width: 40%;
+            padding: 11px 0;
+        }
+        #goog{
+            font-size: 14px;
+            font-family: monospace;
+        }
+
+        #android button{
+            width: 25%;
+            background: rgb(31, 31, 31);
+            color: white;
+            height: 40px;
+            border: 0px;
+            margin-top: 15px;
+            border-radius: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sectio hysht8l bs 3la elAndroid -->
+    <section id="android">
+        <span id="close">&times;</span> <!-- de ely bt3ml 3lamt el x bta3t Close elso8yra -->
+        <span id="text">
+             <p id="goog"> Free On Google Play  </p> 
+        </span>
+
+        <button id="download">Download</button>
+    </section>
+
+
+    <script>
+        let android_section = document.getElementById("android");
+        let user_device = navigator.userAgent.toLocaleLowerCase();
+
+        if(user_device.includes("android") || user_device.includes("iphone") || user_device.includes("ipad") || user_device.includes("windows")){
+           
+            setTimeout(() => {
+                android_section.style.display = "flex";
+            }, 3*1000); // 3shan a5ly elBox bta3 elDownload yzhr kol 3 swany mn elClose
+            
+            let download = document.getElementById("download");
+            download.addEventListener("Click", ()=>{
+                window.open("https://play.google.com/store/apps/details", "_blank"); // 3shan lma y7sl Click 3la elButton yft7 Google Play 
+            });
+        }else{
+            android_section.style.display = "none";
+        }
+
+        let close = document.getElementById("close");
+        close.addEventListener("Click",() => {
+            android_section.style.display = "none";
+        });
+    </script>
+    
+</body>
+</html>
